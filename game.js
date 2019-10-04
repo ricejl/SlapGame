@@ -1,39 +1,53 @@
-let health = 100;
-let name = "Frenchman";
-let hits = 0;
+let target = {
+    name: "Frenchman",
+    health: 100,
+    hits: 0,
+    items: [lie, taunt, cow]
+}
+
+let items = {
+    grenade: { name: 'hand grenade', modifier: 10, description: 'Holy hand grenade of Antioch' },
+    science: { name: 'witches and velocities', modifier: 3, description: 'Witch identification, airspeed velocity of a swallow, etc' },
+    horse: { name: 'Patsy', modifier: 2, description: 'May or may not be a slave hitting coconuts together' },
+    lie: { name: 'misinformation', modifier: 2, description: 'We\'ve already got one!' },
+    taunt: { name: 'insult', modifier: 4, description: 'Your mother was a hamster!' },
+    cow: { name: 'la vache', modifier: 6, description: 'Catapult cow' }
+}
+
+
 
 function update() {
     let healthElem = document.getElementById("health");
     let hitsElem = document.getElementById("hits");
 
-    healthElem.innerText = health;
-    hitsElem.innerText = hits;
+    healthElem.innerText = target.health;
+    hitsElem.innerText = target.hits;
 }
 
 function slap() {
-    health--;
-    hits++;
+    target.health--;
+    target.hits++;
     dead();
     update();
 }
 
 function punch() {
-    health -= 5;
-    hits++;
+    target.health -= 5;
+    target.hits++;
     dead();
     update();
 }
 
 function kick() {
-    health -= 10;
-    hits++;
+    target.health -= 10;
+    target.hits++;
     dead();
     update();
 }
 
 function dead() {
-    if (health < 0) {
-        health = 0;
+    if (target.health < 0) {
+        target.health = 0;
         console.log("He's dead.")
     }
 }
