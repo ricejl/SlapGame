@@ -38,9 +38,6 @@ function giveCow() {
     target.items.push(items.cow)
 }
 
-giveGrenade();
-giveCow();
-
 function addMods() {
     let modTotal = 0;
     for (let i = 0; i < target.items.length; i++) {
