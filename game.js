@@ -2,7 +2,7 @@ let target = {
     name: "Frenchman",
     health: 100,
     hits: 0,
-    items: [lie, taunt, cow]
+    items: []
 }
 
 let items = {
@@ -14,7 +14,40 @@ let items = {
     cow: { name: 'la vache', modifier: 6, description: 'Catapult cow' }
 }
 
+function giveGrenade() {
+    target.items.push(items.grenade)
+}
 
+function giveScience() {
+    target.items.push(items.science)
+}
+
+function giveHorse() {
+    target.items.push(items.horse)
+}
+
+function giveLie() {
+    target.items.push(items.lie)
+}
+
+function giveTaunt() {
+    target.items.push(items.taunt)
+}
+
+function giveCow() {
+    target.items.push(items.cow)
+}
+
+giveGrenade();
+giveCow();
+
+function addMods() {
+    let modTotal = 0;
+    for (let i = 0; i < target.items.length; i++) {
+        modTotal += target.items[i].modifier;
+    }
+    return modTotal
+}
 
 function update() {
     let healthElem = document.getElementById("health");
@@ -25,21 +58,21 @@ function update() {
 }
 
 function slap() {
-    target.health--;
+    target.health -= 1 + addMods();
     target.hits++;
     dead();
     update();
 }
 
 function punch() {
-    target.health -= 5;
+    target.health -= 5 + addMods();
     target.hits++;
     dead();
     update();
 }
 
 function kick() {
-    target.health -= 10;
+    target.health -= 10 + addMods();
     target.hits++;
     dead();
     update();
@@ -51,8 +84,5 @@ function dead() {
         console.log("He's dead.")
     }
 }
-
-// function hitCount() {
-// }
 
 update();
