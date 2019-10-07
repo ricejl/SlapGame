@@ -7,11 +7,11 @@ let target = {
 
 let items = {
     grenade: { name: 'hand grenade', modifier: 10, description: 'Holy hand grenade of Antioch' },
-    science: { name: 'witches and velocities', modifier: 3, description: 'Witch identification, airspeed velocity of a swallow, etc' },
-    horse: { name: 'Patsy', modifier: 2, description: 'May or may not be a slave hitting coconuts together' },
-    lie: { name: 'misinformation', modifier: 2, description: 'We\'ve already got one!' },
-    taunt: { name: 'insult', modifier: 4, description: 'Your mother was a hamster!' },
-    cow: { name: 'la vache', modifier: 6, description: 'Catapult cow' }
+    science: { name: 'witches and velocities', modifier: 2, description: 'Witch identification, airspeed velocity of a swallow, etc' },
+    horse: { name: 'Patsy', modifier: 1, description: 'May or may not be a slave hitting coconuts together' },
+    lie: { name: 'misinformation', modifier: 1, description: 'We\'ve already got one!' },
+    taunt: { name: 'insult', modifier: 3, description: 'Your mother was a hamster!' },
+    cow: { name: 'la vache', modifier: 5, description: 'Catapult cow' }
 }
 
 function giveGrenade() {

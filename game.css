@@ -1,0 +1,23 @@
+#jumbotron {
+    background: url(http://www.castlewales.com/carew2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    background-size: cover;
+}
+
+@media only screen and (min-width: 992px) {
+    #jumbotron {
+        height: 500px;
+    }
+}
+
+#player {
+    max-height: 325px;
+}
+
+@media only screen and (min-width: 992px) {
+    #player {
+        margin-top: 130px;
+    }
+}

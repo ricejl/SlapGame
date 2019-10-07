@@ -12,38 +12,57 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center">
-                <img src="https://placehold.it/200x200" alt="">
+        <div id="jumbotron" class="row text-center">
+            <div class="col-4 mt-5">
+                <img id="player" class="img-fluid"
+                    src="https://images-na.ssl-images-amazon.com/images/I/61boDvncf%2BL._SY741_.jpg" alt="Arthur">
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4 mt-5">
+                <img id="player" class="img-fluid"
+                    src="https://images-na.ssl-images-amazon.com/images/I/61nWNZgqQUL._SY741_.jpg"
+                    alt="Monty Python Frenchman">
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-6">
+            <div class="col-4">
                 <h4>Health:&nbsp;<span id="health"></span></h4>
+                <h4>Assaults:&nbsp;<span id="hits"></span></h4>
             </div>
-            <div class="col-6">
-                <h4>Hits:&nbsp;<span id="hits"></span></h4>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h4>Health:&nbsp;<span id="health"></span></h4>
+                <h4>Assaults:&nbsp;<span id="hits"></span></h4>
             </div>
         </div>
-        <div class="row">
-            <div class="col text-center">
-                <footer>
+        <footer>
+            <div class="row">
+                <div class="col-4 text-center p-2">
                     <button onclick="slap()" class="btn-danger">Slap</button>
                     <button onclick="punch()" class="btn-danger">Punch</button>
                     <button onclick="kick()" class="btn-danger">Kick</button>
-                </footer>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4 text-center p-2">
+                    <button onclick="slap()" class="btn-danger">Slap</button>
+                    <button onclick="punch()" class="btn-danger">Punch</button>
+                    <button onclick="kick()" class="btn-danger">Kick</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col text-center">
-                <button onclick="giveGrenade()" class="btn-warning">Hand Grenade</button>
-                <button onclick="giveScience()" class="btn-warning">Science</button>
-                <button onclick="giveHorse()" class="btn-warning">Horse</button>
-                <button onclick="giveLie()" class="btn-warning">Lie</button>
-                <button onclick="giveTaunt()" class="btn-warning">Taunt</button>
-                <button onclick="giveCow()" class="btn-warning">Cow</button>
+            <div class="row pb-5">
+                <div class="col-4 text-center">
+                    <button onclick="giveGrenade()" class="btn-warning">Hand Grenade</button>
+                    <button onclick="giveScience()" class="btn-warning">Science</button>
+                    <button onclick="giveHorse()" class="btn-warning">Horse</button>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <button onclick="giveLie()" class="btn-warning">Lie</button>
+                    <button onclick="giveTaunt()" class="btn-warning">Taunt</button>
+                    <button onclick="giveCow()" class="btn-warning">Cow</button>
+                </div>
             </div>
-        </div>
+        </footer>
     </div>
 
     <script src="game.js"></script>
