@@ -124,7 +124,6 @@ function dead() {
     }
     else if (opponent.health < 0) {
         opponent.health = 0;
-        console.log("The Frenchman is spent and has run away.");
         let runAwayFrenchman = new Image;
         runAwayFrenchman.src = 'runaway-right.gif';
         document.getElementById("runAwayFrenchman").appendChild(runAwayFrenchman);
@@ -133,16 +132,18 @@ function dead() {
 
 function disableButtons() {
     if ((target.health == 0) || (opponent.health == 0)) {
-        document.querySelectorAll("button").disabled = true; //this line doesn't work
+        document.getElementById("test").disabled = true; //this line doesn't work
     }
 }
+disableButtons();
 
-// function reset() {
-//     let target.health = 100;
-//     let target.hits = 0;
-//     let opponent.health = 100;
-//     let opponent.hits = 0;
-//     update();
-// }
+function reset() {
+    target.health = 100;
+    target.hits = 0;
+    opponent.health = 100;
+    opponent.hits = 0;
+    // document.getElementById("runAwayArthur").removeChild(runAwayArthur);
+    update();
+}
 
 update();
