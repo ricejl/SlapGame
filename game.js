@@ -1,4 +1,11 @@
 let target = {
+    name: "Arthur",
+    health: 100,
+    hits: 0,
+    items: []
+}
+
+let opponent = {
     name: "Frenchman",
     health: 100,
     hits: 0,
@@ -8,7 +15,7 @@ let target = {
 let items = {
     grenade: { name: 'hand grenade', modifier: 10, description: 'Holy hand grenade of Antioch' },
     science: { name: 'witches and velocities', modifier: 2, description: 'Witch identification, airspeed velocity of a swallow, etc' },
-    horse: { name: 'Patsy', modifier: 1, description: 'May or may not be a slave hitting coconuts together' },
+    threat: { name: 'threat', modifier: 1, description: 'Threaten to attack' },
     lie: { name: 'misinformation', modifier: 1, description: 'We\'ve already got one!' },
     taunt: { name: 'insult', modifier: 3, description: 'Your mother was a hamster!' },
     cow: { name: 'la vache', modifier: 5, description: 'Catapult cow' }
@@ -22,23 +29,23 @@ function giveScience() {
     target.items.push(items.science)
 }
 
-function giveHorse() {
-    target.items.push(items.horse)
+function giveThreat() {
+    target.items.push(items.threat)
 }
 
 function giveLie() {
-    target.items.push(items.lie)
+    opponent.items.push(items.lie)
 }
 
 function giveTaunt() {
-    target.items.push(items.taunt)
+    opponent.items.push(items.taunt)
 }
 
 function giveCow() {
-    target.items.push(items.cow)
+    opponent.items.push(items.cow)
 }
 
-function addMods() {
+function addModsArthur() {
     let modTotal = 0;
     for (let i = 0; i < target.items.length; i++) {
         modTotal += target.items[i].modifier;
@@ -46,31 +53,64 @@ function addMods() {
     return modTotal
 }
 
+function addModsFrench() {
+    let modTotal = 0;
+    for (let i = 0; i < opponent.items.length; i++) {
+        modTotal += opponent.items[i].modifier;
+    }
+    return modTotal
+}
+
 function update() {
-    let healthElem = document.getElementById("health");
-    let hitsElem = document.getElementById("hits");
+    let healthArthurElem = document.getElementById("healthArthur");
+    let hitsArthurElem = document.getElementById("hitsArthur");
+    let healthFrenchElem = document.getElementById("healthFrenchman")
+    let hitsFrenchElem = document.getElementById("hitsFrenchman");
 
-    healthElem.innerText = target.health;
-    hitsElem.innerText = target.hits;
+    healthArthurElem.innerText = target.health;
+    hitsArthurElem.innerText = target.hits;
+    healthFrenchElem.innerText = opponent.health;
+    hitsFrenchElem.innerText = opponent.hits;
 }
 
-function slap() {
-    target.health -= 1 + addMods();
+function slapArthur() {
+    target.health -= 1 + addModsFrench();
     target.hits++;
     dead();
     update();
 }
 
-function punch() {
-    target.health -= 5 + addMods();
+function punchArthur() {
+    target.health -= 5 + addModsFrench();
     target.hits++;
     dead();
     update();
 }
 
-function kick() {
-    target.health -= 10 + addMods();
+function kickArthur() {
+    target.health -= 10 + addModsFrench();
     target.hits++;
+    dead();
+    update();
+}
+
+function slapFrenchman() {
+    opponent.health -= 1 + addModsArthur();
+    opponent.hits++;
+    dead();
+    update();
+}
+
+function punchFrenchman() {
+    opponent.health -= 5 + addModsArthur();
+    opponent.hits++;
+    dead();
+    update();
+}
+
+function kickFrenchman() {
+    opponent.health -= 10 + addModsArthur();
+    opponent.hits++;
     dead();
     update();
 }
@@ -78,8 +118,31 @@ function kick() {
 function dead() {
     if (target.health < 0) {
         target.health = 0;
-        console.log("He's dead.")
+        let runAwayArthur = new Image;
+        runAwayArthur.src = 'runaway-left.gif';
+        document.getElementById("runAwayArthur").appendChild(runAwayArthur);
+    }
+    else if (opponent.health < 0) {
+        opponent.health = 0;
+        console.log("The Frenchman is spent and has run away.");
+        let runAwayFrenchman = new Image;
+        runAwayFrenchman.src = 'runaway-right.gif';
+        document.getElementById("runAwayFrenchman").appendChild(runAwayFrenchman);
     }
 }
+
+function disableButtons() {
+    if ((target.health == 0) || (opponent.health == 0)) {
+        document.querySelectorAll("button").disabled = true; //this line doesn't work
+    }
+}
+
+// function reset() {
+//     let target.health = 100;
+//     let target.hits = 0;
+//     let opponent.health = 100;
+//     let opponent.hits = 0;
+//     update();
+// }
 
 update();

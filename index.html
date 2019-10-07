@@ -14,52 +14,55 @@
     <div class="container-fluid">
         <div id="jumbotron" class="row text-center">
             <div class="col-4 mt-5">
-                <img id="player" class="img-fluid"
+                <img id="Arthur" class="img-fluid"
                     src="https://images-na.ssl-images-amazon.com/images/I/61boDvncf%2BL._SY741_.jpg" alt="Arthur">
             </div>
-            <div class="col-4"></div>
+            <div class="col-2 pt-5"><span id="runAwayArthur"></span></div>
+            <div class="col-2 pt-5"><span id="runAwayFrenchman"></span></div>
             <div class="col-4 mt-5">
-                <img id="player" class="img-fluid"
+                <img id="Frenchman" class="img-fluid"
                     src="https://images-na.ssl-images-amazon.com/images/I/61nWNZgqQUL._SY741_.jpg"
                     alt="Monty Python Frenchman">
             </div>
         </div>
         <div class="row text-center">
             <div class="col-4">
-                <h4>Health:&nbsp;<span id="health"></span></h4>
-                <h4>Assaults:&nbsp;<span id="hits"></span></h4>
+                <h4>Health:&nbsp;<span id="healthArthur"></span></h4>
+                <h4>Assaults:&nbsp;<span id="hitsArthur"></span></h4>
             </div>
             <div class="col-4"></div>
             <div class="col-4">
-                <h4>Health:&nbsp;<span id="health"></span></h4>
-                <h4>Assaults:&nbsp;<span id="hits"></span></h4>
+                <h4>Health:&nbsp;<span id="healthFrenchman"></span></h4>
+                <h4>Assaults:&nbsp;<span id="hitsFrenchman"></span></h4>
             </div>
         </div>
         <footer>
             <div class="row">
                 <div class="col-4 text-center p-2">
-                    <button onclick="slap()" class="btn-danger">Slap</button>
-                    <button onclick="punch()" class="btn-danger">Punch</button>
-                    <button onclick="kick()" class="btn-danger">Kick</button>
+                    <button onclick="slapFrenchman()" class="btn btn-danger m-1">Slap</button>
+                    <button onclick="punchFrenchman()" class="btn btn-danger m-1">Punch</button>
+                    <button onclick="kickFrenchman()" class="btn btn-danger m-1">Kick</button>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <button onclick="reset()" class="btn btn-info">Reset</button>
+                </div>
                 <div class="col-4 text-center p-2">
-                    <button onclick="slap()" class="btn-danger">Slap</button>
-                    <button onclick="punch()" class="btn-danger">Punch</button>
-                    <button onclick="kick()" class="btn-danger">Kick</button>
+                    <button onclick="slapArthur()" class="btn btn-danger m-1">Slap</button>
+                    <button onclick="punchArthur()" class="btn btn-danger m-1">Punch</button>
+                    <button onclick="kickArthur()" class="btn btn-danger m-1">Kick</button>
                 </div>
             </div>
             <div class="row pb-5">
                 <div class="col-4 text-center">
-                    <button onclick="giveGrenade()" class="btn-warning">Hand Grenade</button>
-                    <button onclick="giveScience()" class="btn-warning">Science</button>
-                    <button onclick="giveHorse()" class="btn-warning">Horse</button>
+                    <button onclick="giveGrenade()" class="btn btn-warning m-1">Holy Hand Grenade</button>
+                    <button onclick="giveScience()" class="btn btn-warning m-1">Use Science</button>
+                    <button onclick="giveThreat()" class="btn btn-warning m-1">Threaten</button>
                 </div>
                 <div class="col-4"></div>
                 <div class="col-4 text-center">
-                    <button onclick="giveLie()" class="btn-warning">Lie</button>
-                    <button onclick="giveTaunt()" class="btn-warning">Taunt</button>
-                    <button onclick="giveCow()" class="btn-warning">Cow</button>
+                    <button onclick="giveLie()" class="btn btn-warning m-1">Lie About Holy Grail</button>
+                    <button onclick="giveTaunt()" class="btn btn-warning m-1">Taunt</button>
+                    <button onclick="giveCow()" class="btn btn-warning m-1">Catapult Cow</button>
                 </div>
             </div>
         </footer>

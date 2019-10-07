@@ -12,12 +12,22 @@
     }
 }
 
-#player {
+#Arthur, #Frenchman {
     max-height: 325px;
 }
 
 @media only screen and (min-width: 992px) {
-    #player {
+    #Arthur, #Frenchman {
         margin-top: 130px;
     }
+}
+
+#runAwayArthur {
+    position: relative;
+    left: -5rem;
+}
+
+#runAwayFrenchman {
+    position: relative;
+    right: -5rem;
 }
