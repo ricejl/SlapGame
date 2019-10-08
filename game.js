@@ -148,7 +148,15 @@ function reset() {
     opponent.health = 100;
     opponent.hits = 0;
     document.getElementById("runAwayArthur").innerHTML = "";
+    function enableButtons() {
+        let buttons = document.querySelectorAll(".btn-warning, .btn-danger")
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = false;
+        }
+    }
+    enableButtons();
     update();
+
 }
 
-update();
+update()
