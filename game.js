@@ -121,28 +121,33 @@ function dead() {
         let runAwayArthur = new Image;
         runAwayArthur.src = 'runaway-left.gif';
         document.getElementById("runAwayArthur").appendChild(runAwayArthur);
+        disableButtons();
     }
     else if (opponent.health < 0) {
         opponent.health = 0;
         let runAwayFrenchman = new Image;
         runAwayFrenchman.src = 'runaway-right.gif';
         document.getElementById("runAwayFrenchman").appendChild(runAwayFrenchman);
+        disableButtons();
     }
 }
 
 function disableButtons() {
     if ((target.health == 0) || (opponent.health == 0)) {
-        document.getElementById("test").disabled = true; //this line doesn't work
+        let buttons = document.querySelectorAll(".btn-warning,.btn-danger")
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+            // buttons[i].setAttribute("disabled", "true") - 2nd option
+        }
     }
 }
-disableButtons();
 
 function reset() {
     target.health = 100;
     target.hits = 0;
     opponent.health = 100;
     opponent.hits = 0;
-    // document.getElementById("runAwayArthur").removeChild(runAwayArthur);
+    document.getElementById("runAwayArthur").innerHTML = "";
     update();
 }
 
