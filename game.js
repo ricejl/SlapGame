@@ -145,9 +145,12 @@ function disableButtons() {
 function reset() {
     target.health = 100;
     target.hits = 0;
+    target.items = []
     opponent.health = 100;
     opponent.hits = 0;
+    opponent.items = [];
     document.getElementById("runAwayArthur").innerHTML = "";
+    document.getElementById("runAwayFrenchman").innerHTML = "";
     function enableButtons() {
         let buttons = document.querySelectorAll(".btn-warning, .btn-danger")
         for (let i = 0; i < buttons.length; i++) {
